@@ -1,9 +1,9 @@
 # Regression Analysis of Macroeconomic Indicators and Probability of Default
-**Overview**
+### Overview
 
 This project conducts a regression analysis to explore the relationship between macroeconomic indicators and the probability of default (PD). It aims to model how variations in economic factors influence the likelihood of default events, providing insights into the economic determinants of credit risk.
 
-**Goals**
+### Goals
 
  - Develop a predictive model to understand the impact of macroeconomic variables on the probability of default.
 
@@ -11,7 +11,7 @@ This project conducts a regression analysis to explore the relationship between 
 
 - Validate the model's assumptions and evaluate its predictive performance.
 
-**Dataset**
+### Dataset
 
 The analysis utilizes a dataset comprising macroeconomic indicators and corresponding probability of default (PD) data across a specified time period. The dataset is sourced from a bank's retail portfolio.
 
