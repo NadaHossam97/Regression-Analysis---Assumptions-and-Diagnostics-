@@ -43,7 +43,7 @@ We load the dataset and fit a multiple linear regression model to predict `PD` u
 ```R
 # Perform stepwise model selection
 step_model <- stepAIC(full_model, direction = "both", trace = FALSE)
-print(summary(step_model))
+summary(step_model)
 ```
 
 #### Output:
@@ -96,7 +96,7 @@ VIF values for all variables are close to 1, indicating no significant multicoll
 
 ```R
 # Correlation Matrix and Visualization
-print(corrplot(cor(indicators), method = "number"))
+corrplot(cor(indicators), method = "number")
 ```
 
 #### Output:
@@ -117,7 +117,7 @@ The correlation matrix shows the strength and direction of the relationships bet
 
 ```R
 # Plotting VIF values
-print(barplot(vif_values, main = "VIF Values", horiz = TRUE, col = "steelblue"))
+barplot(vif_values, main = "VIF Values", horiz = TRUE, col = "steelblue")
 abline(v = 5, lwd = 3, lty = 2)
 ```
 
@@ -130,7 +130,7 @@ The barplot of VIF values visualizes multicollinearity, with no values exceeding
 
 ```R
 # Test for non-constant variance (homoscedasticity)
-print(ncvTest(step_model))
+ncvTest(step_model)
 ```
 
 #### Output:
@@ -150,7 +150,7 @@ The non-constant variance (ncv) test results in a p-value > 0.05, indicating no 
 ```R
 # Diagnostic plots and tests
 par(mfrow = c(2, 2))
-print(plot(step_model))
+plot(step_model)
 ```
 
 **Comment:**  
@@ -162,7 +162,7 @@ The diagnostic plots help assess the assumptions of the regression model. Residu
 
 ```R
 # Breusch-Pagan Test for Heteroscedasticity
-print(bptest(step_model))
+bptest(step_model)
 ```
 
 #### Output:
@@ -181,7 +181,7 @@ The Breusch-Pagan test also shows a p-value > 0.05, confirming that the model do
 ```R
 # Test for Autocorrelation
 acf(step_model$residuals, type = "correlation")
-print(dwtest(step_model))
+dwtest(step_model)
 ```
 
 #### Output:
@@ -196,7 +196,7 @@ The Durbin-Watson test indicates no significant autocorrelation in the residuals
 
 ```R
 # Breusch-Godfrey test for serial correlation of order up to 3
-print(bgtest(step_model, order=3))
+bgtest(step_model, order=3)
 ```
 
 #### Output:
@@ -214,9 +214,9 @@ The Breusch-Godfrey test confirms the absence of serial correlation in the resid
 
 ```R
 # Test for normality of residuals
-print(ols_plot_resid_qq(step_model))
-print(ols_plot_resid_hist(step_model))
-print(ols_test_normality(step_model))
+ols_plot_resid_qq(step_model)
+ols_plot_resid_hist(step_model)
+ols_test_normality(step_model)
 ```
 
 #### Output:
@@ -238,7 +238,4 @@ The normality tests (Shapiro-Wilk, Kolmogorov-Smirnov, Anderson-Darling) indicat
 
 The stepwise regression model effectively identifies the key predictors of `PD` as `C`, `R`, and `TRADE`, with no evidence of multicollinearity, heteroscedasticity, or autocorrelation in the residuals. All diagnostic tests confirm the robustness of the model. The dataset and the final regression model provide insightful findings into the relationships between macroeconomic indicators and `PD`.
 
-### Future Steps:
 
--   Explore additional models for comparison.
--   Refine the model using interaction terms or non-linear transformations if necessary.
