@@ -229,7 +229,6 @@ Cramer-von Mises           5.09          0.0000
 Anderson-Darling          0.1943         0.8727
 ```
 
-![Histogra of residuals](./plot.png)
 **Comment:**  
 The normality tests (Shapiro-Wilk, Kolmogorov-Smirnov, Anderson-Darling) indicate that the residuals are normally distributed, as the p-values for all tests are > 0.05, except for Cramer-von Mises, which may not be of primary concern here.
 
